@@ -1,10 +1,11 @@
 import { Header } from "@/components/Header";
+import { ToolBar } from "@/components/ToolBar";
 
 export default function Playground() {
   return (
     <>
       <Header/>
-      <h2 className='text-zinc-950'>Playground page</h2>
+      <ToolBar/>
     </>
   );
 }

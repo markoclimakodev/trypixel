@@ -4,20 +4,18 @@
 
 @layer components {
   .header {
-    @apply max-w-full bg-slate-200 shadow-lg px-6 py-3 flex justify-between
+    @apply max-w-full bg-slate-200 shadow-lg px-6 py-3 flex justify-between mb-8;
   }
   .links {
     @apply hover:border-b-4 border-dotted;
   }
   .link--blue {
-    @apply border-blue-500
+    @apply border-blue-500;
   }
   .link--purple {
-    @apply border-purple-700
-
+    @apply border-purple-700;
   }
   .link--green {
-    @apply border-green-400
-
+    @apply border-green-400;
   }
 }
