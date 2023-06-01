@@ -33,7 +33,7 @@ export function ToolBar() {
         className={` ${
           isSelected === 'paint-bucket'
             ? 'fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted '
-            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0'
+            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         }`}
         size={32}
         onClick={() => handleIsSelected('paint-bucket')}
@@ -43,7 +43,7 @@ export function ToolBar() {
         className={`${
           isSelected === 'paint-brush'
             ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
-            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0'
+            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         }`}
         size={32}
         onClick={() => handleIsSelected('paint-brush')}
@@ -53,7 +53,7 @@ export function ToolBar() {
         className={`${
           isSelected === 'eraser'
             ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
-            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0'
+            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         }`}
         size={32}
         onClick={() => handleIsSelected('eraser')}
@@ -63,7 +63,7 @@ export function ToolBar() {
         className={`${
           isSelected === 'erase-all'
             ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
-            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0'
+            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         }`}
         size={32}
         onClick={() => handleIsSelected('erase-all')}
@@ -73,7 +73,7 @@ export function ToolBar() {
         className={`${
           isSelected === 'download'
             ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
-            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0'
+            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         }`}
         size={32}
         onClick={() => handleIsSelected('download')}
