@@ -4,7 +4,7 @@
 
 @layer components {
   .header {
-    @apply max-w-full bg-slate-200 shadow-lg px-6 py-3 flex justify-between mb-8;
+    @apply max-w-full bg-white shadow-lg px-6 py-3 flex justify-between mb-8;
   }
   .links {
     @apply hover:border-b-4 border-dotted;

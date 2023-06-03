@@ -1,82 +1,84 @@
-'use client';
+import { Tool } from '@/types';
 import * as Icon from '@phosphor-icons/react';
-import { useState } from 'react';
 
-type Tool =
-  | 'paint-bucket'
-  | 'paint-brush'
-  | 'eraser'
-  | 'erase-all'
-  | 'download';
+interface ToolBarProps {
+  selectedColor: (color: string) => void;
+  onModeSelected: (mode: Tool) => void;
+  selectedMode: Tool;
+}
 
-export function ToolBar() {
-  const [isSelected, setIsSelected] = useState<Tool | null>(null);
-
-  const handleIsSelected = (tool: Tool) => {
-    if (isSelected === tool) {
-      setIsSelected(null);
-    } else {
-      setIsSelected(tool);
-    }
-  };
-
+export function ToolBar({
+  selectedColor,
+  onModeSelected,
+  selectedMode,
+}: ToolBarProps) {
   return (
-    <section className='w-fit flex m-auto gap-2 bg-slate-200 p-2 rounded-md shadow-lg'>
+    <section className='w-fit flex m-auto gap-2 bg-white p-2 rounded-md shadow-lg'>
       <input
         type='color'
-        name='color-picker'
-        id='color-picker'
+        name='colorPicker'
+        id='colorPicker'
         className='w-8 h-8'
+        onChange={(event) =>
+          selectedColor && selectedColor(event.currentTarget.value)
+        }
+        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
       />
+
       <Icon.PaintBucket
         weight='fill'
-        className={` ${
-          isSelected === 'paint-bucket'
-            ? 'fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted '
-            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
-        }`}
+        className='fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         size={32}
-        onClick={() => handleIsSelected('paint-bucket')}
+        id='paintBucket'
+        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
       />
       <Icon.PaintBrush
         weight='fill'
-        className={`${
-          isSelected === 'paint-brush'
-            ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
+        className={
+          selectedMode === 'paintBrush'
+            ? ' outline-purple-800 outline-dotted rounded'
             : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
-        }`}
+        }
         size={32}
-        onClick={() => handleIsSelected('paint-brush')}
+        id='paintBrush'
+        onClick={(event) => {
+          onModeSelected(event.currentTarget.id as Tool);
+        }}
       />
       <Icon.Eraser
         weight='fill'
-        className={`${
-          isSelected === 'eraser'
-            ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
+        className={
+          selectedMode === 'eraser'
+            ? ' outline-purple-800 outline-dotted rounded'
             : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
-        }`}
+        }
         size={32}
-        onClick={() => handleIsSelected('eraser')}
+        id='eraser'
+        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
       />
+
       <Icon.ChalkboardSimple
         weight='fill'
-        className={`${
-          isSelected === 'erase-all'
-            ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
+        className={
+          selectedMode === 'eraseAll'
+            ? ' outline-purple-800 outline-dotted rounded'
             : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
-        }`}
+        }
         size={32}
-        onClick={() => handleIsSelected('erase-all')}
+        id='eraseAll'
+        onClick={(event) =>  onModeSelected(event.currentTarget.id as Tool)}
       />
+      
       <Icon.DownloadSimple
         weight='fill'
-        className={`${
-          isSelected === 'download'
-            ? ' fill-purple-800 hover:scale-110 border-2 border-purple-800 border-dotted'
+        className={
+          selectedMode === 'download'
+            ? ' outline-purple-800 outline-dotted rounded'
             : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
-        }`}
+        }
         size={32}
-        onClick={() => handleIsSelected('download')}
+        id='download'
+        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
       />
     </section>
   );
