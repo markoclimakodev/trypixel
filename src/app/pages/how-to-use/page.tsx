@@ -1,9 +1,9 @@
-import { Header } from "@/components/Header";
+import { Header } from '@/components/Header';
 
 export default function HowToUse() {
   return (
     <>
-      <Header/>
+      <Header />
       <h2 className='text-zinc-950'>How to use page</h2>
     </>
   );
