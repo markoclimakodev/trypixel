@@ -1,54 +1,53 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import { Header } from '@/components/Header';
 import { Pixels } from '@/components/Pixels';
 import { ToolBar } from '@/components/ToolBar';
 import { Tool } from '@/types';
 
 export default function Playground() {
   const [selectedMode, setSelectedMode] = useState<Tool>('paintBrush');
-  const [color, setColor] = useState('#000000');
+  const [selectedColor, setSelectedColor] = useState('#000000');
   const [eraseColor, setEraseColor] = useState('transparent');
-  const [paint, setpaint] = useState('');
-  const [boardColor, setBoardColor] = useState('#ffffff');
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
+  const [paintOrEraseColor, setPaintOrEraseColor] = useState('');
 
   useEffect(() => {
-    if (selectedMode === 'paintBucket') {
-      setBoardColor(color);
-      setSelectedMode('none');
-    } else if (selectedMode === 'paintBrush') {
-      setColor(color);
-      setpaint(color);
-    } else if (selectedMode === 'eraser') {
-      setEraseColor(eraseColor);
-      setpaint(eraseColor);
-    } else if(selectedMode === 'colorPicker') {
-      setSelectedMode('paintBrush' );
-    }
-  }, [
-    selectedMode,
-    color,
-    setColor,
-    setpaint,
-    eraseColor,
-    setBoardColor,
-  ]);
+    const modeFunctions = {
+      paintBucket: () => {
+        setBackgroundColor(selectedColor);
+        setSelectedMode('paintBrush');
+      },
+      paintBrush: () => {
+        setSelectedColor(selectedColor);
+        setPaintOrEraseColor(selectedColor);
+      },
+      eraser: () => {
+        setEraseColor(eraseColor);
+        setPaintOrEraseColor(eraseColor);
+      },
+      colorPicker: () => {
+        setSelectedMode('paintBrush');
+      },
+      eraseAll: () => {
+        /* not implemented */
+      },
+      download: () => {
+        /* not implemented */
+      },
+    };
+    modeFunctions[selectedMode] && modeFunctions[selectedMode]();
+  }, [selectedMode, selectedColor, eraseColor]);
 
   return (
     <>
-      <Header />
-      <p>{`-----mode :( ${selectedMode} ) | color :(${color}) | erase-color :( ${eraseColor}) | paint :(${paint})-----`}</p>
+      {/* <p className='w-fit backdrop-blur-xl bg-white/30 rounded p-1 mx-auto mb-2'>{`mode :( ${selectedMode} ) | color :(${selectedColor}) | erase-color :( ${eraseColor}) | paint :(${paintOrEraseColor})`}</p> */}
       <ToolBar
         onModeSelected={setSelectedMode}
-        selectedColor={setColor}
+        selectedColor={setSelectedColor}
         selectedMode={selectedMode}
       />
-      <Pixels
-        onClick={()=>paint}
-        color={paint}
-        boardColor={boardColor}
-      />
+      <Pixels onClick={() => setPaintOrEraseColor(selectedColor)} color={paintOrEraseColor} backgroundColor={backgroundColor} />
     </>
   );
 }
