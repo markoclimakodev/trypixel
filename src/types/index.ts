@@ -4,5 +4,4 @@ export type Tool =
   | 'eraser'
   | 'eraseAll'
   | 'download'
-  | 'colorPicker'
-  | 'none';
+  | 'colorPicker';

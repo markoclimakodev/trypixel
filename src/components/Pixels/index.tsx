@@ -1,18 +1,16 @@
-import { Tool } from '@/types';
-
 interface PixelsProps {
   color: string;
-  boardColor: string;
+  backgroundColor: string;
   onClick: () => void;
 }
 
-export function Pixels({ color, boardColor,onClick }: PixelsProps) {
+export function Pixels({ color, backgroundColor,onClick }: PixelsProps) {
   let numberOfPixels: number = 2736;
 
   return (
     <section
-      style={{ backgroundColor: boardColor }}
-      className={`w-[90rem] h-[47.40rem]  mx-auto my-6  border-zinc-950 flex align-middle justify-center flex-wrap`}
+      style={{ backgroundColor: backgroundColor }}
+      className={`w-[90rem] h-[47.41rem]  mx-auto my-6  border-zinc-950 flex align-middle justify-center flex-wrap`}
     >
       {[...Array(numberOfPixels)].map((pixel, index) => {
         return (

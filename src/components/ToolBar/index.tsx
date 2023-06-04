@@ -19,15 +19,17 @@ export function ToolBar({
         name='colorPicker'
         id='colorPicker'
         className='w-8 h-8'
-        onChange={(event) =>
-          selectedColor && selectedColor(event.currentTarget.value)
-        }
+        onChange={(event) => selectedColor(event.currentTarget.value)}
         onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
       />
 
       <Icon.PaintBucket
         weight='fill'
-        className='fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
+        className={
+          selectedMode === 'paintBucket'
+            ? ' outline-purple-800 outline-dotted rounded'
+            : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
+        }
         size={32}
         id='paintBucket'
         onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
@@ -40,7 +42,7 @@ export function ToolBar({
             : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         }
         size={32}
-        id='paintBrush'
+        id='paintBrush' 
         onClick={(event) => {
           onModeSelected(event.currentTarget.id as Tool);
         }}
