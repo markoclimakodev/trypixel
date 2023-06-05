@@ -20,7 +20,7 @@ export function ToolBar({
         id='colorPicker'
         className='w-8 h-8'
         onChange={(event) => selectedColor(event.currentTarget.value)}
-        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
+        onClick={() => onModeSelected('colorPicker')}
       />
 
       <Icon.PaintBucket
@@ -32,7 +32,7 @@ export function ToolBar({
         }
         size={32}
         id='paintBucket'
-        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
+        onClick={() => onModeSelected('paintBucket')}
       />
       <Icon.PaintBrush
         weight='fill'
@@ -42,9 +42,9 @@ export function ToolBar({
             : 'fill-zinc-800 cursor-pointer transition-all ease-in-out border-0 hover:scale-110'
         }
         size={32}
-        id='paintBrush' 
+        id='paintBrush'
         onClick={(event) => {
-          onModeSelected(event.currentTarget.id as Tool);
+          onModeSelected('paintBrush');
         }}
       />
       <Icon.Eraser
@@ -56,7 +56,7 @@ export function ToolBar({
         }
         size={32}
         id='eraser'
-        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
+        onClick={() => onModeSelected('eraser')}
       />
 
       <Icon.ChalkboardSimple
@@ -68,9 +68,9 @@ export function ToolBar({
         }
         size={32}
         id='eraseAll'
-        onClick={(event) =>  onModeSelected(event.currentTarget.id as Tool)}
+        onClick={() => onModeSelected('eraseAll')}
       />
-      
+
       <Icon.DownloadSimple
         weight='fill'
         className={
@@ -80,7 +80,7 @@ export function ToolBar({
         }
         size={32}
         id='download'
-        onClick={(event) => onModeSelected(event.currentTarget.id as Tool)}
+        onClick={(event) => onModeSelected('download')}
       />
     </section>
   );
