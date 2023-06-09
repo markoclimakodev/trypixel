@@ -2,9 +2,10 @@ interface PixelsProps {
   color: string;
   backgroundColor: string;
   onClick: () => void;
+  pixelColor: string | undefined;
 }
 
-export function Pixels({ color, backgroundColor,onClick }: PixelsProps) {
+export function Pixels({ color, backgroundColor, pixelColor }: PixelsProps) {
   let numberOfPixels: number = 2736;
 
   return (
@@ -15,6 +16,7 @@ export function Pixels({ color, backgroundColor,onClick }: PixelsProps) {
       {[...Array(numberOfPixels)].map((pixel, index) => {
         return (
           <div
+          style={{ backgroundColor: pixelColor }}
             className='w-[20px] h-[20px] border-[1px] border-zinc-950 block cursor-pointer'
             key={index}
             onClick={(event) => {

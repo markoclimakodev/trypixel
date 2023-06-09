@@ -43,7 +43,7 @@ export function ToolBar({
         }
         size={32}
         id='paintBrush'
-        onClick={(event) => {
+        onClick={() => {
           onModeSelected('paintBrush');
         }}
       />
@@ -68,7 +68,8 @@ export function ToolBar({
         }
         size={32}
         id='eraseAll'
-        onClick={() => onModeSelected('eraseAll')}
+        onClick={() => onModeSelected('eraseAll')
+        }
       />
 
       <Icon.DownloadSimple

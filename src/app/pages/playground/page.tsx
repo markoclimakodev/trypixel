@@ -11,9 +11,10 @@ export default function Playground() {
   const [eraseColor, setEraseColor] = useState('transparent');
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
   const [paintOrEraseColor, setPaintOrEraseColor] = useState('');
+  const [eraseAllPixels, setEraseAllPixels] = useState(false);
 
   useEffect(() => {
-    const modeFunctions = {
+    const mode = {
       paintBucket: () => {
         setBackgroundColor(selectedColor);
         setSelectedMode('paintBrush');
@@ -30,24 +31,31 @@ export default function Playground() {
         setSelectedMode('paintBrush');
       },
       eraseAll: () => {
-        /* not implemented */
+        setEraseAllPixels(!eraseAllPixels);
+        setPaintOrEraseColor('transparent');
+        setSelectedMode('paintBrush');
       },
       download: () => {
         /* not implemented */
       },
     };
-    modeFunctions[selectedMode] && modeFunctions[selectedMode]();
-  }, [selectedMode, selectedColor, eraseColor]);
+    mode[selectedMode] && mode[selectedMode]();
+  }, [selectedMode, selectedColor, eraseColor, eraseAllPixels]);
 
   return (
     <>
-      {/* <p className='w-fit backdrop-blur-xl bg-white/30 rounded p-1 mx-auto mb-2'>{`mode :( ${selectedMode} ) | color :(${selectedColor}) | erase-color :( ${eraseColor}) | paint :(${paintOrEraseColor})`}</p> */}
+      {/* <p className="w-fit backdrop-blur-xl bg-white/30 rounded p-1 mx-auto mb-2">{`mode :( ${selectedMode} ) | color :(${selectedColor}) | erase-color :( ${eraseColor}) | paint :(${paintOrEraseColor})`}</p> */}
       <ToolBar
         onModeSelected={setSelectedMode}
         selectedColor={setSelectedColor}
         selectedMode={selectedMode}
       />
-      <Pixels onClick={() => setPaintOrEraseColor(selectedColor)} color={paintOrEraseColor} backgroundColor={backgroundColor} />
+      <Pixels
+        pixelColor={eraseAllPixels ? 'transparent' : undefined}
+        onClick={() => setPaintOrEraseColor(selectedColor)}
+        color={paintOrEraseColor}
+        backgroundColor={backgroundColor}
+      />
     </>
   );
 }
