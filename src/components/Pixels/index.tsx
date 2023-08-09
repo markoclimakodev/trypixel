@@ -1,12 +1,12 @@
 interface PixelsProps {
-  color: string;
-  backgroundColor: string;
-  onClick: () => void;
-  pixelColor: string | undefined;
+  color: string
+  backgroundColor: string
+  onClick: () => void
+  pixelColor: string | undefined
 }
 
 export function Pixels({ color, backgroundColor, pixelColor }: PixelsProps) {
-  let numberOfPixels: number = 2736;
+  let numberOfPixels: number = 2736
 
   return (
     <section
@@ -16,15 +16,15 @@ export function Pixels({ color, backgroundColor, pixelColor }: PixelsProps) {
       {[...Array(numberOfPixels)].map((pixel, index) => {
         return (
           <div
-          style={{ backgroundColor: pixelColor }}
+            style={{ backgroundColor: pixelColor }}
             className='w-[20px] h-[20px] border-[1px] border-zinc-950 block cursor-pointer'
             key={index}
             onClick={(event) => {
-              event.currentTarget.style.backgroundColor = color;
+              event.currentTarget.style.backgroundColor = color
             }}
           ></div>
-        );
+        )
       })}
     </section>
-  );
+  )
 }

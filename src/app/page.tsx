@@ -1,46 +1,46 @@
-'use client';
-import { useEffect, useState } from 'react';
+'use client'
+import { useEffect, useState } from 'react'
 
-import { Pixels } from '@/components/Pixels';
-import { ToolBar } from '@/components/ToolBar';
-import { Tool } from '@/types';
+import { Pixels } from '@/components/Pixels'
+import { ToolBar } from '@/components/ToolBar'
+import { Tool } from '@/types'
 
 export default function Playground() {
-  const [selectedMode, setSelectedMode] = useState<Tool>('paintBrush');
-  const [selectedColor, setSelectedColor] = useState('#000000');
-  const [eraseColor, setEraseColor] = useState('transparent');
-  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
-  const [paintOrEraseColor, setPaintOrEraseColor] = useState('');
-  const [eraseAllPixels, setEraseAllPixels] = useState(false);
+  const [selectedMode, setSelectedMode] = useState<Tool>('paintBrush')
+  const [selectedColor, setSelectedColor] = useState('#000000')
+  const [eraseColor, setEraseColor] = useState('transparent')
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff')
+  const [paintOrEraseColor, setPaintOrEraseColor] = useState('')
+  const [eraseAllPixels, setEraseAllPixels] = useState(false)
 
   useEffect(() => {
     const mode = {
       paintBucket: () => {
-        setBackgroundColor(selectedColor);
-        setSelectedMode('paintBrush');
+        setBackgroundColor(selectedColor)
+        setSelectedMode('paintBrush')
       },
       paintBrush: () => {
-        setSelectedColor(selectedColor);
-        setPaintOrEraseColor(selectedColor);
+        setSelectedColor(selectedColor)
+        setPaintOrEraseColor(selectedColor)
       },
       eraser: () => {
-        setEraseColor(eraseColor);
-        setPaintOrEraseColor(eraseColor);
+        setEraseColor(eraseColor)
+        setPaintOrEraseColor(eraseColor)
       },
       colorPicker: () => {
-        setSelectedMode('paintBrush');
+        setSelectedMode('paintBrush')
       },
       eraseAll: () => {
-        setEraseAllPixels(!eraseAllPixels);
-        setPaintOrEraseColor('transparent');
-        setSelectedMode('paintBrush');
+        setEraseAllPixels(!eraseAllPixels)
+        setPaintOrEraseColor('transparent')
+        setSelectedMode('paintBrush')
       },
       download: () => {
         /* not implemented */
       },
-    };
-    mode[selectedMode] && mode[selectedMode]();
-  }, [selectedMode, selectedColor, eraseColor, eraseAllPixels]);
+    }
+    mode[selectedMode] && mode[selectedMode]()
+  }, [selectedMode, selectedColor, eraseColor, eraseAllPixels])
 
   return (
     <>
@@ -57,5 +57,5 @@ export default function Playground() {
         backgroundColor={backgroundColor}
       />
     </>
-  );
+  )
 }

@@ -1,7 +1,6 @@
-import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
-import Link from 'next/link';
-import Logo from '../Logo';
-
+import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons'
+import Link from 'next/link'
+import Logo from '../Logo'
 
 export function Header() {
   return (
@@ -16,5 +15,5 @@ export function Header() {
          </Link>
       </nav>
     </header>
-  );
+  )
 }

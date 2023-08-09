@@ -1,10 +1,10 @@
-import { Tool } from '@/types';
-import * as Icon from '@phosphor-icons/react';
+import { Tool } from '@/types'
+import * as Icon from '@phosphor-icons/react'
 
 interface ToolBarProps {
-  selectedColor: (color: string) => void;
-  onModeSelected: (mode: Tool) => void;
-  selectedMode: Tool;
+  selectedColor: (color: string) => void
+  onModeSelected: (mode: Tool) => void
+  selectedMode: Tool
 }
 
 export function ToolBar({
@@ -44,7 +44,7 @@ export function ToolBar({
         size={32}
         id='paintBrush'
         onClick={() => {
-          onModeSelected('paintBrush');
+          onModeSelected('paintBrush')
         }}
       />
       <Icon.Eraser
@@ -84,5 +84,5 @@ export function ToolBar({
         onClick={(event) => onModeSelected('download')}
       /> */}
     </section>
-  );
+  )
 }
