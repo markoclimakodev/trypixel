@@ -25,26 +25,18 @@ TryPixel is built using the following technologies:
 git@github.com:markoclimakodev/trypixel.git
 
 ```
-
 2. Access the project folder
 ```
-
 cd trypixel
-
 ```
-
 3. Install the dependencies
 ```
-
 npm install
-
 ```
 
 4. Run the project
 ```
-
 npm run dev
-
 ```
 
 ## Screenshot
