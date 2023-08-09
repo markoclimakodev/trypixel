@@ -4,7 +4,7 @@ Trypixel is a web application that allows users to create pixel art. The app is 
 ## Features
 
 - Color Selection: Use the Color Picker to select colors 
-- Paintbrush:** Apply colors pixel by pixel.
+- Paintbrush: Apply colors pixel by pixel.
 - Background Control: Change the background color swiftly with the Paint Bucket tool.
 - Eraser: Clear individual pixels.
 - Erase All: Clear all the pixels instantly with the Erase All tool.
