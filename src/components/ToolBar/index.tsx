@@ -72,7 +72,7 @@ export function ToolBar({
         }
       />
 
-      <Icon.DownloadSimple
+      {/* <Icon.DownloadSimple
         weight='fill'
         className={
           selectedMode === 'download'
@@ -82,7 +82,7 @@ export function ToolBar({
         size={32}
         id='download'
         onClick={(event) => onModeSelected('download')}
-      />
+      /> */}
     </section>
   );
 }

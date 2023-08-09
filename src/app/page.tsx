@@ -1,12 +1,61 @@
-import { Header } from '@/components/Header';
+'use client';
+import { useEffect, useState } from 'react';
 
-export default function Home() {
+import { Pixels } from '@/components/Pixels';
+import { ToolBar } from '@/components/ToolBar';
+import { Tool } from '@/types';
+
+export default function Playground() {
+  const [selectedMode, setSelectedMode] = useState<Tool>('paintBrush');
+  const [selectedColor, setSelectedColor] = useState('#000000');
+  const [eraseColor, setEraseColor] = useState('transparent');
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
+  const [paintOrEraseColor, setPaintOrEraseColor] = useState('');
+  const [eraseAllPixels, setEraseAllPixels] = useState(false);
+
+  useEffect(() => {
+    const mode = {
+      paintBucket: () => {
+        setBackgroundColor(selectedColor);
+        setSelectedMode('paintBrush');
+      },
+      paintBrush: () => {
+        setSelectedColor(selectedColor);
+        setPaintOrEraseColor(selectedColor);
+      },
+      eraser: () => {
+        setEraseColor(eraseColor);
+        setPaintOrEraseColor(eraseColor);
+      },
+      colorPicker: () => {
+        setSelectedMode('paintBrush');
+      },
+      eraseAll: () => {
+        setEraseAllPixels(!eraseAllPixels);
+        setPaintOrEraseColor('transparent');
+        setSelectedMode('paintBrush');
+      },
+      download: () => {
+        /* not implemented */
+      },
+    };
+    mode[selectedMode] && mode[selectedMode]();
+  }, [selectedMode, selectedColor, eraseColor, eraseAllPixels]);
+
   return (
-    <section className='w-[600px] m-auto flex   justify-center align-middle'>
-      <p className='text-lg flex flex-col gap-4 font-extrabold text-slate-200  bg-slate-200/30 p-16 rounded-lg text-center '>
-        Liberte sua criatividade com a Trypixel
-      <a href='./pages/playground' className='bg-green-300 font-extrabold text-zinc-900 px-4 py-2 rounded-lg text-center hover:bg-blue-500 hover:text-white'> Clique aqui para começar</a>
-      </p>
-    </section>
+    <>
+      {/* <p className="w-fit backdrop-blur-xl bg-white/30 rounded p-1 mx-auto mb-2">{`mode :( ${selectedMode} ) | color :(${selectedColor}) | erase-color :( ${eraseColor}) | paint :(${paintOrEraseColor})`}</p> */}
+      <ToolBar
+        onModeSelected={setSelectedMode}
+        selectedColor={setSelectedColor}
+        selectedMode={selectedMode}
+      />
+      <Pixels
+        pixelColor={eraseAllPixels ? 'transparent' : undefined}
+        onClick={() => setPaintOrEraseColor(selectedColor)}
+        color={paintOrEraseColor}
+        backgroundColor={backgroundColor}
+      />
+    </>
   );
 }
