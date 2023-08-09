@@ -2,14 +2,6 @@
 Trypixel is a web application that allows users to create pixel art. The app is designed to provide users with a simple and intuitive interface for creating pixel art, allowing them to unleash their creativity.
 
 ## Features
-
-
-Claro, vamos simplificar a descrição das features:
-
-markdown
-Copy code
-## Features
-
 Trypixel offers a range of features to help you create pixel art effortlessly:
 
 - Color Selection: Use the Color Picker to select colors 
@@ -17,8 +9,6 @@ Trypixel offers a range of features to help you create pixel art effortlessly:
 - Background Control: Change the background color swiftly with the Paint Bucket tool.
 - Eraser: Clear individual pixels.
 - Erase All: Clear all the pixels instantly with the Erase All tool.
-
-
 
 ## Technologies
 
