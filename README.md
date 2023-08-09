@@ -57,7 +57,7 @@ npm run dev
 
 ## Contact
 
-Feel free to connect with me on LinkedIn or reach out via email if you have any questions or want to collaborate:
+Feel free to connect with me on LinkedIn or email.
 
 - LinkedIn: [markoclimako](https://www.linkedin.com/in/markoclimako/)
 - Email: mkclimako@gmail.com
