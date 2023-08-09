@@ -3,10 +3,22 @@ Trypixel is a web application that allows users to create pixel art. The app is 
 
 ## Features
 
-* Color picker tool: Select a color to paint.
-* Paintbrush tool: Paint pixels with the selected color.
-* Eraser tool: Erase pixels with the selected color.
-* Paint bucket tool: Fill the entire canvas with the selected color.
+
+Claro, vamos simplificar a descrição das features:
+
+markdown
+Copy code
+## Features
+
+Trypixel offers a range of features to help you create pixel art effortlessly:
+
+- Color Selection: Use the Color Picker to select colors 
+- Paintbrush:** Apply colors pixel by pixel.
+- Background Control: Change the background color swiftly with the Paint Bucket tool.
+- Eraser: Clear individual pixels.
+- Erase All: Clear all the pixels instantly with the Erase All tool.
+
+
 
 ## Technologies
 
@@ -19,7 +31,7 @@ TryPixel is built using the following technologies:
 
 ## Getting Started
 1. Clone this repository:
-```
+```bash
 
 git@github.com:markoclimakodev/trypixel.git
 
@@ -45,3 +57,18 @@ npm install
 npm run dev
 
 ```
+
+## Screenshot
+![Imagem alt="trypixel"](trypixel.png)
+
+
+## Deployment
+
+- [Trypixel on Vercel](https://trypixel.vercel.app/)
+
+## Contact
+
+Feel free to connect with me on LinkedIn or reach out via email if you have any questions or want to collaborate:
+
+- LinkedIn: [markoclimako](https://www.linkedin.com/in/markoclimako/)
+- Email: mkclimako@gmail.com
